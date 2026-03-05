@@ -69,6 +69,7 @@ c.aliases.update({
     'ds': 'open https://platform.deepseek.com/usage',
     'oc': 'open https://learnopencode.com/5-advanced/20-compaction',
     'vva': 'open https://vvacard.com/index/index.html',
+    'cmy': 'open https://portal.cmy.network/',
     'gh': 'open https://github.com',
     'cfg': 'config-edit',  # 编辑本配置文件
     'reload': 'config-source',  # 重新加载配置
