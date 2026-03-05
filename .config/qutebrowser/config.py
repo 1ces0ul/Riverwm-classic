@@ -143,7 +143,7 @@ c.tabs.tabs_are_windows = False
 c.tabs.new_position.unrelated = 'next'
 
 # 窗口管理
-c.window.hide_decoration = False
+c.window.hide_decoration = True
 
 # ==================== 下载与媒体 ====================
 
