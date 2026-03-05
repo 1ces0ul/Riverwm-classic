@@ -196,10 +196,7 @@ config.bind(';a', 'hint links spawn ghostty -e yt-dlp {hint-url}')
 #config.bind('sw', 'cmd-set-text :open -t en.wikipedia.org/wiki/{}')
 
 # 4. 开发者工具快捷键
-#config.bind('di', 'devtools')
-#config.bind('dI', 'devtools --toggle')
-#config.bind('de', 'devtools element')
-#config.bind('dc', 'console')
+#config.bind('Fi', 'devtools window')
 
 # 5. 快速切换代理（需要先配置代理）
 config.bind(';p1', 'set content.proxy http://localhost:7890')
