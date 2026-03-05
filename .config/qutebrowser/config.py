@@ -114,7 +114,7 @@ c.content.cookies.accept = 'no-3rdparty'
 #c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
 
 # Cookie 策略切换
-config.bind(';caa', 'set content.cookies.accept all')
+config.bind('za', 'set content.cookies.accept all')
 config.bind(';can', 'set content.cookies.accept no-3rdparty')
 config.bind(';cav', 'set content.cookies.accept never')
 
