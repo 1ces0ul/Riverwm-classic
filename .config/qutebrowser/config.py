@@ -73,7 +73,6 @@ c.aliases.update({
     'cmy': 'open https://portal.cmy.network/',
     'gh': 'open https://github.com',
     'cfg': 'config-edit',  # 编辑本配置文件
-    'reload': 'config-source',  # 重新加载配置
 })
 
 # 搜索引擎（快速搜索） - 确保每个都包含 {} 占位符
