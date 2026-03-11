@@ -2,7 +2,7 @@
 
 # --- 核心配置 ---
 API_URL="http://127.0.0.1:9090"
-API_SECRET="001101" # 已根据你的测试结果填入
+API_SECRET="" # 已根据你的测试结果填入
 MAIN_GROUP="🚀 节点切换"
 FLAG="/tmp/waybar_mihomo_show_node"
 
