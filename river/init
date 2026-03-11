@@ -136,7 +136,6 @@ local autostarts = {
 	{ "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river" },
 	{ "systemctl --user start swww.service" },
 	{ "swww", "img", wallpaper },
-	{ "wl-paste", "--watch", "cliphist", "store" },
 }
 
 -- Run startup commands
@@ -149,6 +148,7 @@ end
 
 local oneshot_commands = {
 	{ "fcitx5" },
+	{ "wl-paste", "--watch", "cliphist", "store" },
 }
 
 -- run programs that need to be executed only once
