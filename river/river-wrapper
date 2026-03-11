@@ -1,3 +1,7 @@
 #!/bin/bash
 export XDG_CURRENT_DESKTOP=river
+
+# 从 systemd 用户环境导入所有变量
+eval "$(systemctl --user show-environment | sed 's/^/export /')"
+
 exec river "$@"
