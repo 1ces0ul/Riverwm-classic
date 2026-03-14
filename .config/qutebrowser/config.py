@@ -72,6 +72,7 @@ c.aliases.update({
     'vva': 'open https://vvacard.com/index/index.html',
     'cmy': 'open https://portal.cmy.network/',
     'gh': 'open https://github.com',
+    'cb': 'open https://codeberg.org',
     'cfg': 'config-edit',  # 编辑本配置文件
 })
 
