@@ -23,7 +23,7 @@ wlopm
 slurp
 swayidle
 waylock
-swww
+awww
 mako
 fuzzel
 wev
