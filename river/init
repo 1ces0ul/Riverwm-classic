@@ -626,7 +626,7 @@ local mappings = {
 				key = "XF86AudioRaiseVolume",
 				command = {
 					"spawn",
-					fmt([['wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%%+ -l %.2f']], max_volume),
+					fmt([['%s/volume-notify.sh up']], SCRIPTS),
 				},
 				opt = "repeat",
 			},
@@ -636,7 +636,7 @@ local mappings = {
 				key = "XF86AudioLowerVolume",
 				command = {
 					"spawn",
-					fmt([['wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%%- -l %.2f']], max_volume),
+					fmt([['%s/volume-notify.sh down']], SCRIPTS),
 				},
 				opt = "repeat",
 			},
@@ -644,13 +644,13 @@ local mappings = {
 			{
 				mod = "None",
 				key = "XF86AudioMute",
-				command = { "spawn", [['wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle']] },
+				command = { "spawn", fmt([['%s/volume-notify.sh toggle']], SCRIPTS) },
 			},
 			-- #To mute/unmute the microphone
 			{
 				mod = "None",
 				key = "XF86AudioMicMute",
-				command = { "spawn", [['wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle']] },
+				command = { "spawn", fmt([['%s/volume-notify.sh mic']], SCRIPTS) },
 			},
 			-- Control MPRIS aware media players with 'playerctl'
 			{
