@@ -1,0 +1,21 @@
+background-color=#1a1b26
+text-color=#a9b1d6
+border-color=#7aa2f7
+border-size=3
+border-radius=15
+font=JetBrainsMono Nerd Font 14
+padding=15,30,15,30
+margin=10
+width=280
+height=60
+text-alignment=center
+progress-color=over #7aa2f7
+
+[urgency=low]
+border-color=#414868
+
+[urgency=normal]
+border-color=#7aa2f7
+
+[urgency=high]
+border-color=#f7768e
