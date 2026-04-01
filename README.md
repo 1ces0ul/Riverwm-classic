@@ -98,7 +98,8 @@ wayland-info
 qutebrowser
 python-adblock(qutebrowseradblock)
 yt-dlp
-
+feishu-bin
+rsync
 ```
 
 `power-profiles-daemon` `sudo systemctl enable power-profiles-daemon.service`
