@@ -2,15 +2,39 @@
 
 # --- 核心配置 ---
 API_URL="http://127.0.0.1:9090"
-API_SECRET="${MIHOMO_API_SECRET}" # 从环境变量读取
-MAIN_GROUP="🚀 一键代理"
+API_SECRET="${MIHOMO_API_SECRET}"
 FLAG="/tmp/waybar_mihomo_show_node"
 
 # --- 封装带鉴权的 curl 函数 ---
 api_curl() {
-  # 必须确保 $API_SECRET 在双引号内以防解析错误
   curl -s -H "Authorization: Bearer $API_SECRET" "$@"
 }
+
+# --- 自动获取代理组 ---
+get_groups() {
+  local groups=$(api_curl "$API_URL/group")
+  [ -z "$groups" ] && return
+
+  local main_group=$(echo "$groups" | jq -r '.proxies[] | select(.type == "Selector") | select(.all | length > 0) | {name, count: (.all | length)} | sort_by(.count) | reverse | .[0].name' 2>/dev/null)
+  [ -z "$main_group" ] || [ "$main_group" = "null" ] && return
+
+  echo "$main_group"
+}
+
+get_rule_group() {
+  local rules=$(api_curl "$API_URL/rules")
+  [ -z "$rules" ] && return
+
+  local rule_group=$(echo "$rules" | jq -r '.rules[] | select(.type == "Match") | .proxy' 2>/dev/null)
+  [ -z "$rule_group" ] || [ "$rule_group" = "null" ] && return
+
+  echo "$rule_group"
+}
+
+MAIN_GROUP=$(get_groups)
+RULE_GROUP=$(get_rule_group)
+[ -z "$MAIN_GROUP" ] && MAIN_GROUP="GLOBAL"
+[ -z "$RULE_GROUP" ] && RULE_GROUP="GLOBAL"
 
 # --- 递归函数：寻找最底层的真实服务器名 ---
 trace_node() {
@@ -64,8 +88,7 @@ esac
 if [ "$MODE" == "direct" ]; then
   FINAL_NODE="直连模式"
 else
-  # 确定起点：Global 模式从 GLOBAL 找，Rule 模式从主代理组找
-  [ "$MODE" == "global" ] && START_GROUP="GLOBAL" || START_GROUP="$MAIN_GROUP"
+  [ "$MODE" == "global" ] && START_GROUP="$MAIN_GROUP" || START_GROUP="$RULE_GROUP"
 
   ENCODED_GROUP=$(echo -n "$START_GROUP" | jq -sRr @uri)
   START_NODE=$(api_curl "$API_URL/proxies/$ENCODED_GROUP" | jq -r .now)
