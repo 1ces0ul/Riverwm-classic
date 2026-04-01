@@ -1,7 +1,12 @@
 #!/bin/bash
 export XDG_CURRENT_DESKTOP=river
 
-# 从 systemd 用户环境导入所有变量
-eval "$(systemctl --user show-environment | sed 's/^/export /')"
+# 加载 environment.d 中的变量
+for f in ~/.config/environment.d/*.conf; do
+  [ -f "$f" ] && set -a && source "$f" && set +a
+done
+
+# 清理可能过时的 WAYLAND_DISPLAY，避免连接已失效的 socket
+unset WAYLAND_DISPLAY
 
 exec river "$@"
