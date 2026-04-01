@@ -3,7 +3,7 @@
 # --- 核心配置 ---
 API_URL="http://127.0.0.1:9090"
 API_SECRET="${MIHOMO_API_SECRET}" # 从环境变量读取
-MAIN_GROUP="🚀 节点切换"
+MAIN_GROUP="🚀 一键代理"
 FLAG="/tmp/waybar_mihomo_show_node"
 
 # --- 封装带鉴权的 curl 函数 ---
@@ -82,10 +82,10 @@ case "$MODE" in "direct") ICON="󱡀" ;; "global") ICON="󰣩" ;; *) ICON="󰖂"
 
 if [ -f "$FLAG" ]; then
   # 如果存在标志文件，显示具体节点名
-  DISPLAY_TEXT="$ICON $FINAL_NODE"
+  DISPLAY_TEXT="$FINAL_NODE"
 else
   # 否则只显示模式
-  DISPLAY_TEXT="$ICON $RAW_MODE"
+  DISPLAY_TEXT="$ICON"
 fi
 
 echo "{\"text\":\"$DISPLAY_TEXT\",\"tooltip\":\"📍 当前节点：$FINAL_NODE\n📡 TUN：$TUN_STR\n⚙️ 模式：$RAW_MODE\",\"class\":\"$MODE\"}"
