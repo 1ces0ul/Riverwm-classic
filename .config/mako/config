@@ -1,4 +1,4 @@
-background-color=#1a1b26
+background-color=#1a1b2661
 text-color=#a9b1d6
 border-color=#7aa2f7
 border-size=3
@@ -9,13 +9,20 @@ margin=10
 width=280
 height=60
 text-alignment=center
-progress-color=over #7aa2f7
+progress-color=over #7aa2f79E
+
+[app-name=wp-vol]
+layer=overlay
+history=0
+anchor=top-center
+group-by=app-name
+format=<b>%s</b>\n%b
+
+[app-name=volume group-index=0]
+invisible=0
+
+[app-name=volume grouped=false]
+invisible=0
 
 [urgency=low]
-border-color=#414868
-
-[urgency=normal]
-border-color=#7aa2f7
-
-[urgency=high]
-border-color=#f7768e
+invisible=1
