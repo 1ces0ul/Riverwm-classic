@@ -197,6 +197,9 @@ config.bind('<Space>', 'hint links spawn --detach mpv --ytdl-format=bestvideo+be
 
 config.bind(';Dv', 'hint links spawn ghostty -e yt-dlp {hint-url}')
 
+# 复制当前页面URL并用mpv播放（最高画质）
+config.bind(';vm', 'yank url ;; spawn --detach mpv --ytdl-format=bestvideo+bestaudio/best {clipboard}')
+
 # 快速搜索选中文本（多种引擎）
 #config.bind('sg', 'cmd-set-text /')
 #config.bind('sG', 'cmd-set-text ?')
@@ -292,7 +295,12 @@ c.input.mouse.back_forward_buttons = True
 
 # Wayland 支持（如果你使用 Wayland）
 if os.environ.get('WAYLAND_DISPLAY'):
-    c.qt.args = ['--enable-features=WebRTCPipeWireCapturer']
+    c.qt.args = [
+        '--enable-features=WebRTCPipeWireCapturer,VaapiVideoDecoder',
+        '--use-gl=egl',
+        '--enable-gpu-rasterization',
+        '--enable-zero-copy',
+    ]
     c.qt.force_platform = 'wayland'
 
 # ==================== 调试与日志 ====================
