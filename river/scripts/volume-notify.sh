@@ -37,18 +37,17 @@ fi
 
 case "$NOTIFY" in
     mako)
-        makoctl dismiss --all
         if [ "$percent" -eq 0 ]; then
-            notify-send -a "Rijan" -t 1500 "$text"
+            notify-send -a "wp-vol" -t 1500 -h string:x-canonical-private-synchronous:volume "$text"
         else
-            notify-send -a "Rijan" -t 1500 -h "int:value:$percent" "$text"
+            notify-send -a "wp-vol" -t 1500 -h string:x-canonical-private-synchronous:volume -h "int:value:$percent" "$text"
         fi
         ;;
     dunst)
         if [ "$percent" -eq 0 ]; then
-            dunstify -r 12345 "$text" -t 1500
+            dunstify -a "wp-vol" -r 12345 "$text" -t 1500
         else
-            dunstify -r 12345 -h "int:value:$percent" "$text" -t 1500
+            dunstify -a "wp-vol" -r 12345 -h "int:value:$percent" "$text" -t 1500
         fi
         ;;
 esac
