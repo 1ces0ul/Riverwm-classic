@@ -5,7 +5,8 @@ PartOf=graphical-session.target
 
 [Service]
 Type=exec
-ExecStart=/bin/bash -c 'while true; do /usr/bin/awww-daemon; sleep 1; done'
+ExecStart=/home/icesoul/.config/river/scripts/awww-daemon-wrapper
+Restart=no
 TimeoutStopSec=10
 
 [Install]
