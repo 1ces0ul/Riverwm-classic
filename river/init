@@ -904,7 +904,7 @@ local window_rules = {
 			"float",
 		},
 		["ssd"] = {
-			"ghostty",
+
 		},
 		["csd"] = {
 			"firefox",
