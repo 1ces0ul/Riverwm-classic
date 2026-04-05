@@ -237,13 +237,20 @@ local touchpad_options = {
 -- River Options
 local river_options = {
 	["default-attach-mode"] = "bottom",
-	["border-width"] = 0,
+	["border-width"] = 2,
+	["border-color-focused"] = "0x939393",
+	["border-color-unfocused"] = "0x585858",
+	["border-color-urgent"] = "0xDC322F",
+	["background-color"] = "0x000000",
+	["allow-tearing"] = "enabled",
 	["focus-follows-cursor"] = "normal",
 	["hide-cursor"] = { "when-typing", "enabled" },
+	["cursor-timeout"] = { "timeout", 3000 },
 	["set-cursor-warp"] = "on-output-change",
 	["set-repeat"] = { 50, 300 },
 	["xcursor-theme"] = { "broodwar", 24 },
 	["default-layout"] = "rivertile",
+	["spawn-tagmask"] = 511,
 }
 
 -- Set river's options
@@ -345,7 +352,7 @@ local mappings = {
 			{
 				mod = { "Super" },
 				key = "B",
-				command = { "spawn", [[firefox]] },
+				command = { "spawn", [[qutebrowser]] },
 			},
 			-- Application launcher
 			{
@@ -896,12 +903,14 @@ local window_rules = {
 			"popup",
 			"float",
 		},
+		["ssd"] = {
+			"ghostty",
+		},
 		["csd"] = {
 			"firefox",
 		},
 		["tags"] = {
-			{ "firefox", workspace(1) },
-			{ "mpv", workspace(3) },
+			{ "mpv", workspace(7) },
 			{ "steam", workspace(8) },
 			{ "dota2", workspace(8) },
 			{ "cs2", workspace(8) },
