@@ -908,6 +908,7 @@ local window_rules = {
 		},
 		["csd"] = {
 			"firefox",
+			"mpv",
 		},
 		["tags"] = {
 			{ "mpv", workspace(7) },
