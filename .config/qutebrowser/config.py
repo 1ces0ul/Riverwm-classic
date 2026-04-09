@@ -193,7 +193,7 @@ config.bind(',', 'config-cycle tabs.show never always')
 config.bind('.', 'config-cycle statusbar.show always never')
 
 # 视频控制（空格播放/暂停，f全屏）
-config.bind('<Space>', 'hint links spawn --detach mpv --ytdl-format=bestvideo+bestaudio/best {hint-url}')
+#config.bind('<Space>', 'hint links spawn --detach mpv --ytdl-format=bestvideo+bestaudio/best {hint-url}')
 
 config.bind(';Dv', 'hint links spawn ghostty -e yt-dlp {hint-url}')
 
