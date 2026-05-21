@@ -11,18 +11,21 @@ height=60
 text-alignment=center
 progress-color=over #7aa2f79E
 
+# === 核心行为配置 ===
+default-timeout=15000
+ignore-timeout=1
+group-by=app-name
+on-button-left=dismiss
+max-visible=5
+icons=1
+max-icon-size=48
+
 [app-name=wp-vol]
 layer=overlay
 history=0
 anchor=top-center
 group-by=app-name
 format=<b>%s</b>\n%b
-
-[app-name=volume group-index=0]
-invisible=0
-
-[app-name=volume grouped=false]
-invisible=0
 
 [urgency=low]
 invisible=1
